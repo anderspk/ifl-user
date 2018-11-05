@@ -8,7 +8,7 @@ const landingPage = () => {
           <h1>Intergalactic Football League</h1>
         </section>
         <section className='latest-news'>
-          <h3>Latest News:</h3>
+          <h3>Latest News</h3>
           <ul>
             <li>Killer Robots score a goal against Team Humans.</li>
             <li>Gabriel#9 joins The Gabriels</li>

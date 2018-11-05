@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Particles from 'react-particles-js';
-import { Switch, Route, Link } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
-import Teams from './components/Teams';
-import TeamPlayers from './components/TeamPlayers';
-import Background from './components/Background';
 
 const particlesOptions = {
   particles: {
     number: {
-      value: 160,
+      value: 100,
       density: {
         enable: true,
         value_area: 800
@@ -112,40 +107,21 @@ const particlesOptions = {
   retina_detect: true
 }
 
-class App extends Component {
+class Background extends Component {
 
-  renderHeader = () => {
-    return (
-      <header>
-        <div className='blur'></div>
-        <nav>
-          <ul>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/teams'>Teams</Link></li>
-            <li><a href='#' >PLAYERS</a></li>
-            <li><a href='#' >MATCHES</a></li>
-          </ul>
-          <ul className='account-nav'>
-            <li><a href='#'>My Account</a></li>
-          </ul>
-        </nav>
-      </header>
-    )
+  shouldComponentUpdate() {
+    return false;
   }
 
   render() {
-    return (
-      <div className="App">
-        <Background />
-        {this.renderHeader()}
-        <Switch>
-          <Route path='/teams/:id' component={TeamPlayers} />
-          <Route path='/teams' component={Teams} />
-          <Route exact path='/' component={LandingPage} />
-        </Switch>
-      </div>
-    );
+      return ( <
+        Particles className = 'particles'
+        params = {
+          particlesOptions
+        }
+        />
+      )
   }
 }
 
-export default App;
+export default Background;
