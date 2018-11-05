@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +10,97 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: linear-gradient(89deg, #000000 0%, #000529 100%) */
+  background: url('https://i.imgur.com/TNEJezP.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+#root {
+  min-height: 100vh;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header {
+  padding-top: 2rem;
+}
+
+nav {
+  padding: 2rem;
+  margin: 0 auto 0;
+  text-align: center;
+  background: rgba(0, 0, 0, .4);
+}
+
+ul {
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 3rem;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+  padding: 2rem;
+  transition: all .5s;
+  font-weight: 700;
+}
+
+li a:hover {
+  color: #2C94AD
+}
+
+.header {
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  height: 30rem;
+  color: white;
+  font-family: 'K2D', sans-serif;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 5rem;
+}
+
+.latest-news {
+  width: 1000px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, .4);
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.latest-news ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.latest-news li {
+  padding: .5rem;
 }
