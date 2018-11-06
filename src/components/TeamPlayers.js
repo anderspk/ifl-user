@@ -24,26 +24,29 @@ class TeamPlayers extends Component {
   }
 
   render() {
-    console.log(this.state, 'state');
     if (!this.state.teamName) return <div></div>;
     return (
       <section className='header players-table'>
-       <h3>{this.state.teamName}</h3>
-      <table>
-        <tr className='table-header'>
-          <th>
-            #
-          </th>
-          <th>
-            Name
-          </th>
-          <th>
-            Position
-          </th>
-        </tr>
-        {this.renderPlayersList()}
-      </table>
-    </section>
+        <h3>{this.state.teamName}</h3>
+        <table>
+          <thead>
+            <tr className='table-header'>
+              <th>
+                #
+            </th>
+              <th>
+                Name
+            </th>
+              <th>
+                Position
+            </th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderPlayersList()}
+          </tbody>
+        </table>
+      </section>
     )
   }
 }
