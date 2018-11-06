@@ -2,43 +2,42 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-class TeamPlayers extends Component {
+class Players extends Component {
 
   state = { players: [] };
 
   componentWillMount() {
     const { id } = this.props.match.params;
-    axios.get(`http://case-person.herokuapp.com/showPlayersInTeam/${id}`).then(players => this.setState({ players: players.data }));
-    axios.get(`http://case-team.herokuapp.com/showAllTeamData/${id}`).then(team => this.setState({ teamName: team.data.association_name }));
+    axios.get(`http://case-person.herokuapp.com/showPlayers`).then(players => this.setState({ players: players.data }));
   }
 
   renderPlayersList = () => {
     return this.state.players.map(player => {
       return (
       <tr key={player.aperson_id} className='table-row'>
-          <td className='team-number'>{player.number}</td>
-          <td className='player-name'>{`${player.first_name} ${player.last_name}`}</td>
+          <td className='player-number'>{`${player.first_name} ${player.last_name}`}</td>
           <td className={player.normal_position.toLowerCase()}>{player.normal_position}</td>
+          <td className='team-name'>{player.number}</td>
       </tr>)
     });
   }
 
   render() {
     console.log(this.state, 'state');
-    if (!this.state.teamName) return <div></div>;
+    if (!this.state.players) return <div></div>;
     return (
       <section className='header players-table'>
-       <h3>{this.state.teamName}</h3>
+       <h3>Players</h3>
       <table>
         <tr className='table-header'>
-          <th>
-            #
-          </th>
           <th>
             Name
           </th>
           <th>
             Position
+          </th>
+          <th>
+            Team
           </th>
         </tr>
         {this.renderPlayersList()}
@@ -48,4 +47,4 @@ class TeamPlayers extends Component {
   }
 }
 
-export default TeamPlayers;
+export default Players;

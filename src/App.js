@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import Teams from './components/Teams';
 import TeamPlayers from './components/TeamPlayers';
 import Background from './components/Background';
+import Players from './components/Players';
 
 const particlesOptions = {
   particles: {
@@ -122,7 +123,7 @@ class App extends Component {
           <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/teams'>Teams</Link></li>
-            <li><a href='#' >PLAYERS</a></li>
+            <li><Link to='/players'>Players</Link></li>
             <li><a href='#' >MATCHES</a></li>
           </ul>
           <ul className='account-nav'>
@@ -139,6 +140,7 @@ class App extends Component {
         <Background />
         {this.renderHeader()}
         <Switch>
+          <Route path='/players' component={Players} />
           <Route path='/teams/:id' component={TeamPlayers} />
           <Route path='/teams' component={Teams} />
           <Route exact path='/' component={LandingPage} />
