@@ -26,6 +26,18 @@ class PlayerProfile extends Component {
       </table>
     )
   }
+
+  renderNews() {
+    return (
+      <div className='profile-news'>
+        <div className='profile-news-header'>
+          <h5>Latest News</h5>
+          <a>Follow</a>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
     <section className="header profile-page">
@@ -34,6 +46,7 @@ class PlayerProfile extends Component {
         <h4>Philip J. Fry</h4>
       </div>
       {this.renderTable()}
+      {this.renderNews()}
     </section>
     );
   }

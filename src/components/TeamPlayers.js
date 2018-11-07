@@ -17,7 +17,9 @@ class TeamPlayers extends Component {
       return (
       <tr key={player.aperson_id} className='table-row'>
           <td className='team-number'>{player.number}</td>
-          <td className='player-name'>{`${player.first_name} ${player.last_name}`}</td>
+          <td className='player-name'>
+            <Link to={`/players/${player.person_id}`}>{`${player.first_name} ${player.last_name}`}</Link>
+          </td>
           <td className={player.normal_position.toLowerCase()}>{player.normal_position}</td>
       </tr>)
     });
