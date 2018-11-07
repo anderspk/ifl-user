@@ -102,7 +102,7 @@ h1 {
 
 .latest-news {
   width: 1000px;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   background: rgba(0, 0, 0, .4);
   padding: 1rem;
@@ -272,6 +272,7 @@ h3 {
   letter-spacing: 1px;
   padding: 1rem 2rem;
   min-width: 20rem;
+  margin-bottom: 0;
 }
 
 .profile-page table td {
@@ -310,4 +311,82 @@ h3 {
   padding: .5rem;
   background: rgba(0, 174, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all .2s;
+}
+
+.profile-news-header a:hover {
+  cursor: pointer;
+  background-color: rgba(0,174,255,.15);
+  border: 1px solid #00C6FF;
+}
+
+.matches-table {
+  align-self: center;
+  max-width: 600px;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.matches-table table {
+  background: #182840;
+  border: 1px solid #11539f;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0px 0px 13px 2px #000000; 
+  box-shadow: 0px 0px 13px 2px rgba(255, 255, 255, .1);
+}
+
+.matches-table table:hover {
+  cursor: pointer;
+}
+
+.matches-table tr {
+  padding: 1rem;
+}
+
+.matches-table tr:hover {
+  background: #2c507d;
+}
+
+.matches-table tr:hover {
+  cursor: pointer;
+}
+
+.matches-table .crest {
+  max-width: 30px;
+  margin: 0;
+}
+
+.table-teams-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.versus {
+  padding: 0 1rem;
+  font-size: .7rem;
+  display: flex;
+}
+
+.versus p {
+  align-self: center;
+}
+
+.home-team {
+  text-align: right;
+}
+
+.away-team {
+  text-align: left;
+}
+
+.matches-table h3 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+table {
+  margin-bottom: 3rem;
 }

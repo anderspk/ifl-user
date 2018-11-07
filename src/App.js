@@ -6,6 +6,7 @@ import TeamPlayers from './components/TeamPlayers';
 import Background from './components/Background';
 import Players from './components/Players';
 import PlayerProfile from './components/PlayerProfile';
+import Matches from './components/Matches';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/teams'>Teams</Link></li>
             <li><Link to='/players'>Players</Link></li>
-            <li><Link to='/'>Matches</Link></li>
+            <li><Link to='/matches'>Matches</Link></li>
           </ul>
           <ul className='account-nav'>
             <li><Link to='/'>My Account</Link></li>
@@ -32,6 +33,7 @@ class App extends Component {
         <Background />
         {this.renderHeader()}
         <Switch>
+          <Route path="/matches" component={Matches} />
           <Route path="/players/:id" component={PlayerProfile} />
           <Route path="/players" component={Players} />
           <Route path="/teams/:id" component={TeamPlayers} />
