@@ -21,7 +21,7 @@ class App extends Component {
             <li><Link to='/matches'>Matches</Link></li>
           </ul>
           <ul className='account-nav'>
-            <li><Link to='/'>My Account</Link></li>
+            <li><a onClick={e => this.props.auth.login()}>My Account</a></li>
           </ul>
         </nav>
       </header>
@@ -29,6 +29,8 @@ class App extends Component {
   }
 
   render() {
+    const { isAuthenticated } = this.props.auth;
+    console.log(isAuthenticated(), 'authenticated');
     return <div className="App">
         <Background />
         {this.renderHeader()}
