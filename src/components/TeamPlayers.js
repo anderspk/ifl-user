@@ -8,8 +8,8 @@ class TeamPlayers extends Component {
 
   componentWillMount() {
     const { id } = this.props.match.params;
-    axios.get(`http://case-person.herokuapp.com/showPlayersInTeam/${id}`).then(players => this.setState({ players: players.data }));
-    axios.get(`http://case-team.herokuapp.com/showAllTeamData/${id}`).then(team => this.setState({ teamName: team.data.association_name }));
+    axios.get(`https://case-person.herokuapp.com/showPlayersInTeam/${id}`).then(players => this.setState({ players: players.data }));
+    axios.get(`https://case-team.herokuapp.com/showAllTeamData/${id}`).then(team => this.setState({ teamName: team.data.association_name, team_image: team.data.team_image }));
   }
 
   renderPlayersList = () => {
@@ -30,6 +30,7 @@ class TeamPlayers extends Component {
     return (
       <section className='header players-table'>
         <h3>{this.state.teamName}</h3>
+        <img src={this.state.team_image} />
         <table>
           <thead>
             <tr className='table-header'>

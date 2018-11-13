@@ -7,7 +7,7 @@ class Teams extends Component {
   state = {teams: []};
 
   componentDidMount() {
-    axios.get('http://case-team.herokuapp.com/showAllTeamData')
+    axios.get('https://case-team.herokuapp.com/showAllTeamData')
     .then(response => this.setState({ teams: response.data }));
   }
   renderTeamList = () => {

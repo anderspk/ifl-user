@@ -7,8 +7,8 @@ class Players extends Component {
   state = { players: [] };
 
   componentWillMount() {
-    axios.get('http://case-person.herokuapp.com/showPlayers').then(response => this.setState({ players: response.data }));
-    axios.get('http://case-team.herokuapp.com/showAllTeamData').then(response => this.setState({ teams: response.data }));
+    axios.get('https://case-person.herokuapp.com/showPlayers').then(response => this.setState({ players: response.data }));
+    axios.get('https://case-team.herokuapp.com/showAllTeamData').then(response => this.setState({ teams: response.data }));
   }
 
   renderPlayersList = () => {
@@ -16,7 +16,7 @@ class Players extends Component {
       return (
       <tr key={i} className='table-row'>
           <td className='player-name'>
-            <Link to={`/players/${player.person_id}`}>{`${player.first_name} ${player.last_name}`}</Link>
+            <Link to={`/players/${player.player_id}`}>{`${player.first_name} ${player.last_name}`}</Link>
           </td>
 
           <td className={player.normal_position.toLowerCase()}>{player.normal_position}</td>

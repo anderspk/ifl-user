@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Route } from 'react-router-dom';
 
 class Matches extends Component {
 
-  state = {};
+  state = {
+    upcomingMatches: [],
+    completedMatches: []
+  };
 
   componentWillMount() {
-    axios.get("http://case-match.herokuapp.com/showMatches")
-      .then(response => this.setState({ matches: response.data }));
-    axios.get("http://case-team.herokuapp.com/showAllTeamData/")
+    axios.get("https://case-match.herokuapp.com/showUpcommingMatches")
+      .then(response => this.setState({ upcomingMatches: response.data }));
+    axios.get("https://case-match.herokuapp.com/showCompletedMatches")
+      .then(response => this.setState({ completedMatches: response.data }));
+    axios.get("https://case-team.herokuapp.com/showAllTeamData/")
       .then(response => this.setState({ teams: response.data }));
   }
 
-  renderMatchesTable = () => {
+  renderMatchesTable = (matches) => {
     return (
       <table>
         <tbody>
-        {this.state.matches.map(match => {
+        {matches.map(match => {
           return (
-            <tr>
+            <tr onClick={e => this.props.history.push(`/matches/${match.match_id}`)}>
               <td className="match-time">{match.match_date}</td>
               <td>
                 <img className="home-team crest" src="https://www.designevo.com/res/templates/thumb_small/soccer-ball-badge.png" />
@@ -42,12 +46,14 @@ class Matches extends Component {
   }
 
   render() {
-    if (!this.state.matches || !this.state.teams) return 'Loading...';
+    if (!this.state.teams) return <div></div>;
     
     return (
       <section className='header matches-table'>
-        <h3>Matches</h3>
-        {this.renderMatchesTable()}
+        <h3>Upcoming Matches</h3>
+        {this.renderMatchesTable(this.state.upcomingMatches)}
+        <h3>Completed Matches</h3>
+        {this.renderMatchesTable(this.state.completedMatches)}
       </section>
     )
 

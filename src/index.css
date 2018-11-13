@@ -68,6 +68,7 @@ nav li a {
 .account-nav a {
   text-transform: capitalize;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 nav li a:hover {
@@ -237,7 +238,6 @@ img {
 
 .profile-name {
   background-color: #182840;
-  /* outline: 1px solid black; */
   border: 2px solid #11539f;
   border-radius: 3px;
   width: 30rem;
@@ -288,13 +288,15 @@ h3 {
   align-self: center;
   min-width: 35rem;
   margin-top: 2rem;
-  border-bottom: 2px solid rgba(0, 211, 211, .6);
   padding: .2rem .5rem;
 }
 
 .profile-news-header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid rgba(0, 211, 211, .6);
+  padding: .2rem .5rem;
+
 }
 
 .profile-news-header h5 {
@@ -314,6 +316,17 @@ h3 {
   transition: all .2s;
 }
 
+.profile-news-header .following {
+  background: rgba(0, 184, 148, .6);
+  border: 1px solid #00B894;
+}
+
+.profile-news-header .following:hover {
+  background: rgba(0, 184, 148, .32);
+  border: 1px solid rgba(0, 184, 148, .4);
+}
+
+
 .profile-news-header a:hover {
   cursor: pointer;
   background-color: rgba(0,174,255,.15);
@@ -322,17 +335,23 @@ h3 {
 
 .matches-table {
   align-self: center;
-  max-width: 600px;
+  width: 800px;
   font-size: 1.2rem;
   font-weight: 300;
+  padding-top: 3rem;
+    background: #182840;
+  border: 1px solid #11539f;
+  border-collapse: collapse;
+  -webkit-box-shadow: 0px 0px 13px 2px #000000; 
+  box-shadow: 0px 0px 13px 2px rgba(255, 255, 255, .1);
+  margin-top: 3rem;
+  padding: 3rem;
 }
 
 .matches-table table {
   background: #182840;
   border: 1px solid #11539f;
   border-collapse: collapse;
-  -webkit-box-shadow: 0px 0px 13px 2px #000000; 
-  box-shadow: 0px 0px 13px 2px rgba(255, 255, 255, .1);
 }
 
 .matches-table table:hover {
@@ -341,6 +360,8 @@ h3 {
 
 .matches-table tr {
   padding: 1rem;
+  border: 1px solid black;
+  background: rgba(255, 255, 255, .1);
 }
 
 .matches-table tr:hover {
@@ -353,7 +374,7 @@ h3 {
 
 .matches-table .crest {
   max-width: 30px;
-  margin: 0;
+  margin: 5px 0;
 }
 
 .table-teams-container {
@@ -382,11 +403,117 @@ h3 {
 
 .matches-table h3 {
   margin-bottom: 2rem;
-  font-size: 3rem;
+  font-size: 2.8rem;
   text-transform: uppercase;
-  text-align: left;
 }
 
 table {
   margin-bottom: 3rem;
+}
+
+.account-header {
+  max-width: 1000px;
+  margin: 0 auto;
+  color: white;
+  padding-top: 2rem;
+}
+
+.newsfeed-header {
+  /* display: flex;
+  justify-content: space-between; */
+  border-bottom: 2px solid #00C6FF;
+}
+
+.newsfeed {
+  margin-bottom: .5rem;
+}
+
+.account-header li {
+  padding: .3rem;
+  background: rgba(0, 174, 255, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, .3);
+  text-align: center;
+}
+
+.matches-table h3 {
+  border-bottom: 2px solid #00C6FF;
+}
+
+.match-page-header {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.match-page-header img {
+  margin: 2rem 3rem 1rem;
+}
+
+.match-page-header h4 {
+  color: #00C6FF;
+  font-size: 3rem;
+}
+
+.match-vs {
+  padding-top: 10rem;
+  margin: 0 .5rem;
+}
+
+.match-vs h3 {
+  color: #fdc12d;
+  font-size: 3rem;
+}
+
+.match-home-team, .match-away-team {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #00C6FF;
+    -webkit-box-shadow: 0px 0px 13px 2px #000000; 
+  box-shadow: inset 0px 0px 23px 2px rgba(0,0,0,0.5);
+  margin-bottom: 2rem;
+}
+
+.player-card {
+  display: flex;
+  padding: .5rem;
+  border-top: 1px solid #1a2b40;
+  background: rgba(0, 0, 0, .3);
+}
+
+.player-card img{
+  max-width: 50px;
+  margin: 0;
+}
+
+.player-card table {
+  margin: 0;
+  text-align: left;
+  border-spacing: 1rem 0;
+  color: rgba(255, 255, 255, .9);
+}
+
+.score {
+  color: white !important;
+}
+
+.Win {
+  background: rgba(0, 184, 148, .4) !important;
+  border: 1px solid black;
+}
+
+.Loss {
+  background: rgba(255, 117, 117, .4);
+  border: 1px solid black;
+}
+
+.profile-news ul {
+  padding-top: .5rem;
+}
+
+.profile-news li {
+  background: rgba(0, 0, 0, .3);
+  margin-top: .1rem;
+  padding: .2rem 1rem;
 }

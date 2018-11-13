@@ -7,8 +7,14 @@ import Background from './components/Background';
 import Players from './components/Players';
 import PlayerProfile from './components/PlayerProfile';
 import Matches from './components/Matches';
+import Callback from './Callback';
+import Account from './components/Account';
+import MatchPage from './components/MatchPage';
 
 class App extends Component {
+
+  componentWillMount() {
+  }
 
   renderHeader = () => {
     return (
@@ -21,27 +27,37 @@ class App extends Component {
             <li><Link to='/matches'>Matches</Link></li>
           </ul>
           <ul className='account-nav'>
-            <li><a onClick={e => this.props.auth.login()}>My Account</a></li>
+            {!this.props.auth.isAuthenticated() && <li><a onClick={e => this.props.auth.login()}>Log in</a></li>}
+            {this.props.auth.isAuthenticated() && <li><Link to='/account'>My Account</Link></li>}
+            {this.props.auth.isAuthenticated() && <li><a onClick={e => this.props.auth.logout()}>Log Out</a></li>}
           </ul>
         </nav>
       </header>
     )
   }
 
+  createRoutes() {
+    return (
+      <Switch>
+        <Route path="/account" component={Account} />
+        <Route path="/callback" component={Callback} />
+        {this.props.auth.isAuthenticated() && <Route path="/matches/:id" component={MatchPage} />}
+        <Route path="/matches" component={Matches} />
+        {this.props.auth.isAuthenticated() && <Route path="/players/:id" component={PlayerProfile} />}
+        <Route exact path="/players" component={Players} />
+        {this.props.auth.isAuthenticated() && <Route path="/teams/:id" component={TeamPlayers} />}
+        <Route exact path="/teams" component={Teams} />
+        <Route exact path="/" component={LandingPage} />
+        <Route component={LandingPage} />
+      </Switch>
+    )
+  }
+
   render() {
-    const { isAuthenticated } = this.props.auth;
-    console.log(isAuthenticated(), 'authenticated');
     return <div className="App">
         <Background />
         {this.renderHeader()}
-        <Switch>
-          <Route path="/matches" component={Matches} />
-          <Route path="/players/:id" component={PlayerProfile} />
-          <Route path="/players" component={Players} />
-          <Route path="/teams/:id" component={TeamPlayers} />
-          <Route path="/teams" component={Teams} />
-          <Route exact path="/" component={LandingPage} />
-        </Switch>
+        {this.createRoutes()}
       </div>;
   }
 }

@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { makeMainRoutes } from './routes';
+import Auth from './auth/Auth';
 
-const routes = makeMainRoutes();
+const auth = new Auth();
 
 ReactDOM.render(
-  routes
+  <BrowserRouter>
+    <App auth={auth} />
+  </BrowserRouter>
   , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
