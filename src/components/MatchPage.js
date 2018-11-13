@@ -8,20 +8,23 @@ class MatchPage extends Component {
 
   componentDidMount() {
     console.log(this.props)
-    axios.get(`https://case-match.herokuapp.com/showOneMatch//${this.props.match.params.id}`)
+    axios.get(`https://case-match.herokuapp.com/showOneMatch/${this.props.match.params.id}`)
       .then(response => {
         const match = response.data;
         const homeTeam = axios.get(`https://case-team.herokuapp.com/showAllTeamData/${match.home_team_id}`);
         const awayTeam = axios.get(`https://case-team.herokuapp.com/showAllTeamData/${match.away_team_id}`);
-        const homeTeamPlayers = axios.get(`https://case-person.herokuapp.com/showPlayersInTeam/${match.away_team_id}`);
+        const homeTeamPlayers = axios.get(`https://case-person.herokuapp.com/showPlayersInTeam/${match.home_team_id}`);
         const awayTeamPlayers = axios.get(`https://case-person.herokuapp.com/showPlayersInTeam/${match.away_team_id}`);
         const matchResult = axios.get(`https://case-results.herokuapp.com/showOneResult/${this.props.match.params.id}`);
 
         Promise.all([homeTeam, awayTeam, homeTeamPlayers, awayTeamPlayers, matchResult]).then(values => {
           const homeTeamData = values[0].data;
           const awayTeamData = values[1].data;
+
           const homeTeamPlayersData = values[2].data;
           const awayTeamPlayersData = values[3].data;
+          console.log(homeTeamPlayersData, 'hometeam')
+          console.log(awayTeamPlayersData, 'awayteam')
           const matchResultData = values[4].data;
 
           this.setState({

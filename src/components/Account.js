@@ -18,10 +18,11 @@ class Account extends Component {
   }
 
   render() {
+    console.log(this.state, 'news');
     return <section className="account-header">
         <div className="newsfeed profile-news">
           <div className="profile-news-header">
-            <h5>News Feed</h5>
+            <h5>Your News Feed</h5>
           </div>
         </div>
       <ul>

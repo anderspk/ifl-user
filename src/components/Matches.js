@@ -25,8 +25,8 @@ class Matches extends Component {
           return (
             <tr onClick={e => this.props.history.push(`/matches/${match.match_id}`)}>
               <td className="match-time">{match.match_date}</td>
-              <td>
-                <img className="home-team crest" src="https://www.designevo.com/res/templates/thumb_small/soccer-ball-badge.png" />
+              <td className='td-crest'>
+                <img className="home-team crest" src={this.state.teams.find(team => team.team_id === match.home_team_id).team_image} />
               </td>
               <td className="table-teams">
                 <div className="table-teams-container">
@@ -35,8 +35,8 @@ class Matches extends Component {
                   <div className="away-team">{this.state.teams.find(team => team.team_id === match.away_team_id).association_name}</div>
                 </div>
               </td>
-              <td>
-                <img className="away-team crest" src="https://www.designevo.com/res/templates/thumb_small/soccer-ball-badge.png" />
+              <td className='td-crest'>
+                <img className="away-team crest" src={this.state.teams.find(team => team.team_id === match.away_team_id).team_image} />
               </td>
             </tr>);
         })}

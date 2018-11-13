@@ -109,6 +109,7 @@ h1 {
   padding: 1rem;
   color: white;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .latest-news h3 {
@@ -362,6 +363,7 @@ h3 {
   padding: 1rem;
   border: 1px solid black;
   background: rgba(255, 255, 255, .1);
+  height: 50px;
 }
 
 .matches-table tr:hover {
@@ -373,8 +375,18 @@ h3 {
 }
 
 .matches-table .crest {
-  max-width: 30px;
-  margin: 5px 0;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  margin: 5px;
+}
+
+.matches-table .td-crest {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto 0;
 }
 
 .table-teams-container {
@@ -424,14 +436,15 @@ table {
   border-bottom: 2px solid #00C6FF;
 }
 
+
 .newsfeed {
   margin-bottom: .5rem;
 }
 
 .account-header li {
-  padding: .3rem;
-  background: rgba(0, 174, 255, 0.3);
-  border-top: 1px solid rgba(0, 0, 0, .3);
+  padding: .7rem .3rem;
+  background: rgba(0,0,0, .4);
+  border-top: 1px solid rgba(0, 0, 0, .5);
   text-align: center;
 }
 
@@ -473,6 +486,7 @@ table {
     -webkit-box-shadow: 0px 0px 13px 2px #000000; 
   box-shadow: inset 0px 0px 23px 2px rgba(0,0,0,0.5);
   margin-bottom: 2rem;
+  min-width: 460px;
 }
 
 .player-card {
@@ -483,7 +497,7 @@ table {
 }
 
 .player-card img{
-  max-width: 50px;
+  max-width: 70px;
   margin: 0;
 }
 

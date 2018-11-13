@@ -35,17 +35,18 @@ class PlayerProfile extends Component {
   componentWillMount() {
     const auth = new Auth();
     const username = auth.getProfile().name;
+    console.log(username, 'username');
 
-    const user_id = axios.get(`https://case-users3.herokuapp.com/userID/${username}`);
+    const user_id = axios.get(`https://case-users.herokuapp.com/userID/${username}`);
     const player = axios.get(`https://case-person.herokuapp.com/showOnePlayer/${this.props.match.params.id}`);
-    const playerNews = axios.get(`https://case-users3.herokuapp.com/getPlayerNews/${this.props.match.params.id}`);
+    const playerNews = axios.get(`https://case-users.herokuapp.com/getPlayerNews/${this.props.match.params.id}`);
 
     Promise.all([user_id, player, playerNews]).then(values => {
       const user_id_data = values[0].data.user_id;
       const player_data = values[1].data;
       const team = axios.get(`https://case-team.herokuapp.com/showAllTeamData/${values[1].data.team_id}`);
       const playerNews_data = values[2].data;
-      const watchlist = axios.get(`https://case-users3.herokuapp.com/getPlayerWatchlist/${user_id_data}`);
+      const watchlist = axios.get(`https://case-users.herokuapp.com/getPlayerWatchlist/${user_id_data}`);
       Promise.all([team, watchlist]).then(values2 => {
         console.log(values2[1].data);
         const following = values2[1].data.includes(Number(this.props.match.params.id));

@@ -19,7 +19,8 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'case-login.eu.auth0.com',
     clientID: 'obcpKGK8DYmH8y1X4NwCaDjMtPswC6Xz',
-    redirectUri: 'https://ifl-user.herokuapp.com/callback',
+    // redirectUri: 'https://ifl-user.herokuapp.com/callback',
+    redirectUri: 'http://localhost:3000/callback',
     responseType: 'token id_token',
     scope: 'openid profile'
   })
